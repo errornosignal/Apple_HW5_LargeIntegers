@@ -14,52 +14,54 @@ func validateInput(prompt: String) -> String {
         print(prompt)
         let userInput = readLine()!
         if(userInput.count > 0) {
-            return userInput
+            return userInput.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
         } else {
             print("Error! No Input.")
         }
     }
 }
 
-
 //main
 //print program header
 print("Apple_HW5_LargeIntegers")
 print("Type 'quit' to exit.\n")
 
-var largeInt1: Int = 0
-var largeInt2: Int = 0
+//variables for user input
+var userInput1: String = ""
+var userInput2: String = ""
 
 //get 1st value
-var userInput1Good = false; //boolean for loop
+var userInput1Good = false
 while (!userInput1Good) {
     let inStr1 = validateInput(prompt: "LargeInt1: ")
-    let userInput1 = inStr1.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
-    //process selection
-    if (userInput1 == "quit") {
+    if (inStr1 == "quit") {
         exit(3)
-    } else if (Int(userInput1) != nil) {
-        largeInt1 = Int(userInput1)!
+    } else if (Int(inStr1) != nil) {
+        userInput1 = inStr1
         userInput1Good = true
-        print("Yummy!")
     } else {
         print("Error! Invalid input.")
     }
 }
 
 //get 2nd value
-var userInput2Good = false; //boolean for loop
+var userInput2Good = false
 while (!userInput2Good) {
     let inStr2 = validateInput(prompt: "LargeInt2: ")
-    let userInput2 = inStr2.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
-    //process selection
-    if (userInput2 == "quit") {
+    if (inStr2 == "quit") {
         exit(4)
-    } else if (Int(userInput2) != nil) {
-        largeInt1 = Int(userInput2)!
+    } else if (Int(inStr2) != nil) {
+        userInput2 = inStr2
         userInput2Good = true
-        print("Yummy Yummy!")
     } else {
         print("Error! Invalid input.")
     }
 }
+
+//set values of class objects
+var largeInt1 = LargeInt(mInt: userInput1)
+var largeInt2 = LargeInt(mInt: userInput2)
+
+//display values of class objects
+print("largeInt1 = [\(String(describing: largeInt1.mInt))]")
+print("largeInt2 = [\(String(describing: largeInt2.mInt))]")
