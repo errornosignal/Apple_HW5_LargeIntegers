@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		31B8FC9B1FD91BA60082AA9E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B8FC9A1FD91BA60082AA9E /* main.swift */; };
+		31B8FCA21FD91D3C0082AA9E /* LargeInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B8FCA11FD91D3C0082AA9E /* LargeInt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		31B8FC971FD91BA60082AA9E /* Apple_HW5_LargeIntegers */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Apple_HW5_LargeIntegers; sourceTree = BUILT_PRODUCTS_DIR; };
 		31B8FC9A1FD91BA60082AA9E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		31B8FCA11FD91D3C0082AA9E /* LargeInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeInt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				31B8FC9A1FD91BA60082AA9E /* main.swift */,
+				31B8FCA11FD91D3C0082AA9E /* LargeInt.swift */,
 			);
 			path = Apple_HW5_LargeIntegers;
 			sourceTree = "<group>";
@@ -121,6 +124,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31B8FC9B1FD91BA60082AA9E /* main.swift in Sources */,
+				31B8FCA21FD91D3C0082AA9E /* LargeInt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
