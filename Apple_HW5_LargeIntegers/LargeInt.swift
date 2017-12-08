@@ -10,9 +10,8 @@ import Foundation
 
 //LargeInt class to handle addition of extremely large integers
 struct LargeInt {
-    
-    var value: String
-    
+    var value: String = ""
+
     //function to add two LargeInt objects and return the sum
     func add(right: LargeInt) -> LargeInt {
         let userInput1 = String(describing: value.map { (String($0)) })
@@ -41,7 +40,7 @@ struct LargeInt {
         //get size of largest row (number of digits) and initialize array
         let maxColumns = max(row1.count, row2.count)
         var result = [Int](repeating: 0, count: maxColumns)
-
+        
         //insert leaing zeroes as buffer for carrying-over
         while (row1.count < maxColumns) {
             row1.insert(0, at: 0)
@@ -73,13 +72,36 @@ struct LargeInt {
         tdArray.append(row3)
         
         //drop leading zeroes from result, if they exisit
-        for _ in 1..<tdArray[2].count {
+        for _ in tdArray[0]  {
+            if (tdArray[0].first == 0) {
+                tdArray[0] = Array(tdArray[0].dropFirst())
+            } else {/*doNothing*/}
+        }
+        
+        for _ in tdArray[1]  {
+            if (tdArray[1].first == 0) {
+                tdArray[1] = Array(tdArray[1].dropFirst())
+            } else {/*doNothing*/}
+        }
+        
+        for _ in tdArray[2] {
             if (tdArray[2].first == 0) {
                 tdArray[2] = Array(tdArray[2].dropFirst())
-            } else {
-                tdArray[2] = tdArray[2]
-            }
+            } else {/*doNothing*/}
         }
+        
+        //print arrays arter dropping zeroes
+        print("largeInt1   = ", terminator: "")
+        for e in tdArray[0] {
+            print("", e, separator: "", terminator: "")
+        }
+        print()
+        
+        print("largeInt2   = ", terminator: "")
+        for e in tdArray[1] {
+            print("", e, separator: "", terminator: "")
+        }
+        print()
         
         //copy array to result variable
         result = tdArray[2]
@@ -87,37 +109,37 @@ struct LargeInt {
         //...FINALLY!!!
         return  LargeInt(value: result.map { String($0) }.joined(separator: ""))
     }
-    
+
+    //override addition operator for addition metho of LargeInt class objects
+    static func + (left: LargeInt, right: LargeInt) -> LargeInt {
+        return left.add(right: right)
+    }
+
     //function to subtract two LargeInt objects and return the difference ***NOT COMPLETE***
     func subtract(right: LargeInt) -> LargeInt {
         //TODO: Build this function
         let str = "Function not complete..."
         return LargeInt(value: str)
     }
-}
 
-//override addition operator for addition metho of LargeInt class objects
-func + (left: LargeInt, right: LargeInt) -> LargeInt {
-    return left.add(right: right)
-}
-
-//override subtraction operator for subtraction method of LargeInt class objects
-func - (left: LargeInt, right: LargeInt) -> LargeInt {
-    return left.subtract(right: right)
-}
-//convert char to int
-func charToInt(tempChar: Character) -> Int {
-    switch tempChar {
-        case "0": return 0
-        case "1": return 1
-        case "2": return 2
-        case "3": return 3
-        case "4": return 4
-        case "5": return 5
-        case "6": return 6
-        case "7": return 7
-        case "8": return 8
-        case "9": return 9
-         default: return 0
+    //override subtraction operator for subtraction method of LargeInt class objects
+    static func - (left: LargeInt, right: LargeInt) -> LargeInt {
+        return left.subtract(right: right)
+    }
+    //convert char to int
+    func charToInt(tempChar: Character) -> Int {
+        switch tempChar {
+            case "0": return 0
+            case "1": return 1
+            case "2": return 2
+            case "3": return 3
+            case "4": return 4
+            case "5": return 5
+            case "6": return 6
+            case "7": return 7
+            case "8": return 8
+            case "9": return 9
+             default: return 0
+        }
     }
 }

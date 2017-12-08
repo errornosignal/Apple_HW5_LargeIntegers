@@ -60,10 +60,23 @@ print("Type 'quit' to exit.\n")
 //loop until user quits
 while (true) {
     //add LargeInt objects and get sum
-    let sum = (LargeInt(value: validateInput(prompt: "LargeInt1:"))) + (LargeInt(value: validateInput(prompt: "LargeInt2: ")))
-    print("sum = \(sum)")
+    let largeInt1 = LargeInt(value: validateInput(prompt: "LargeInt1:"))
+    let largeInt2 = LargeInt(value: validateInput(prompt: "LargeInt2:"))
+    var largeIntSum = LargeInt(value: "0")
+    
+    largeIntSum = largeInt1 + largeInt2
+    //print("largeInt1 = \(largeInt1.value)")
+    //print("largeInt2 = \(largeInt2.value)")
+    print("largeIntSum = \(largeIntSum.value)")
     
 //    //subtract LargeInt objects and get difference (function is not complete in LargeInt class)
-//    let difference = (LargeInt(value: validateInput(prompt: "LargeInt1: "))) + (LargeInt(value: validateInput(prompt: "LargeInt2: ")))
-//    print("difference = \(difference)")
+//    let largeInt3 = LargeInt(value: validateInput(prompt: "LargeInt3:"))
+//    let largeInt4 = LargeInt(value: validateInput(prompt: "LargeInt4:"))
+//    var largeIntDifference = LargeInt(value: "0")
+//
+//    largeIntDifference = largeInt3 - largeInt4
+//    print("largeInt3 = \(largeInt3.value)")
+//    print("largeInt4 = \(largeInt4.value)")
+//    print("largeIntDifference = \(largeIntDifference.value)")
+    print()
 }
